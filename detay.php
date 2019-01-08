@@ -1,8 +1,9 @@
+<?php require("header.php") ?>
 <?php
     require "simple_html_dom.php";
-    
+
     if(isset($_GET["filmId"])){
-        
+
             $filmId=$_GET["filmId"];
             $html=str_get_html(file_get_contents("https://www.sinefil.com/title/".$filmId));
             $title=$html->find('span.title')[0]->plaintext;
@@ -12,7 +13,9 @@
             foreach($html->find('div.readmore p') as $element){
                         echo $element->plaintext;
             }
+            echo "deneme";
 
     }
 
     ?>
+    <?php require("footer.php") ?>
